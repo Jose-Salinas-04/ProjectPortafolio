@@ -1,9 +1,20 @@
 <h1>{{title}}</h1>
 
-<nav class="nacv">
+{% load static %}
+
+{% block content %}
+
+
+<nav class="navbar">
     <ul>  
         <a href="/">Home</a>      
         <a href="/fechayhora">Calendario</a>           
         <a href="/contactanos">contactanos</a>
     </ul>
 </nav>
+
+<img src="{% static 'logo2' %}" 
+
+{% endblock %}
+
+
