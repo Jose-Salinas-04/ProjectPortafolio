@@ -1,0 +1,107 @@
+/* Reset básico para quitar márgenes y padding por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Estilos del logo y el título */
+.navbar img {
+    width: 50px;
+    height: auto;
+}
+
+.navbar h1 {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+.navbar h2 {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Estilos del contenedor principal */
+.main-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del banner de la imagen */
+.banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la sección de profesionales */
+.professionals {
+    text-align: center;
+}
+
+.professionals h2 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.professionals .profile {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.professionals .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+.professionals .profile p {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #666;
+}
