@@ -4,41 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Court</title>
+    <title>Master Court - Maipú</title>
+    <link rel="stylesheet" href="/myapp/static/styles/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
 </head>
 <body>
     <header class="navbar">
-        <img src="spiderman.png" alt="Master Court Logo">
+        <img src="{% static 'spiderman.jpg' %}" alt="Master Court Logo">
         <div>
-            <h1>Master Court</h1>
+            <h2>{{ title }}</h2>
             <h2>Master Court - Maipú</h2>
         </div>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Sobre nosotros</a></li>
-            <li><a href="#">Agendar</a></li>
-            <li><a href="#">Contáctanos</a></li>
+            <li>
+                <a href="/myapp/templates/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/myapp/templates/nosotros.html">Sobre nosotros</a>
+            </li>
+            <li>
+                <a href="/myapp/templates/agendar.html">Agendar</a>
+            </li>
+            <li>
+                <a href="/myapp/templates/contactanos.html">Contáctanos</a>
+            </li>
         </ul>
     </header>
     <div class="main-content">
-        <img class="banner" src="spiderman.jpg" alt="Banner Image">
+        <img class="banner" src="{% static 'spiderman.jpg' %}" alt="Banner Image">
         <section class="professionals">
             <h2>¿Con qué profesional te quieres atender?</h2>
             <div class="profile">
-                <img src="spiderman.jpg" alt="Pedro">
+                <img src="/myapp/static/spiderman.jpg" alt="Pedro">
                 <p>Pedro</p>
             </div>
             <div class="profile">
-                <img src="spiderman.jpg" alt="Juan">
+                <img src="{% static '/myapp/static/spiderman.jpg' %}" alt="Juan">
                 <p>Juan</p>
             </div>
             <div class="profile">
-                <img src="spiderman.jpg" alt="Diego">
+                <img src="{% static 'spiderman.jpg' %}" alt="Diego">
                 <p>Diego</p>
             </div>
         </section>
     </div>
 </body>
 </html>
+

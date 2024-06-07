@@ -7,11 +7,11 @@ def index(request):
         "title" : title,
     })
 
-def fechayhora(request):
-    return render(request, 'fechayhora.html')
+def agendar(request):
+    return render(request, 'agendar.html')
 
-def form_contacto(request):
-    return render(request, 'form_contacto.html')
+def nosotros(request):
+    return render(request, 'nosotros.html')
 
 def contactanos(request):
     return render(request, 'contactanos.html')
