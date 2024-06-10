@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="{% static 'logo2.jpg' %}" alt="" class="logo logo-container">
+                <div class="textos">
+                    <h5>Master Court</h5>
+                    <p>Master Court - Maipú</p>
+                </div>
+                <div class="menu">
+                    <a href="{% url 'index' %}" class="menu-item">Home</a>
+                    <a href="{% url 'nosotros' %}" class="menu-item">Sobre nosotros</a>
+                    <a href="{% url 'contactanos' %}" class="menu-item">Contactanos</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main">
+        <div class="container mt-5">
+            <h1 class="text-center">Nuestra Historia</h1>
+<p>En el corazón de Maipú, Master Court nació con una misión clara: ofrecer servicios de peluquería y barbería de primera calidad en un ambiente acogedor y profesional. Fundada en 2010, nuestra tienda ha crecido de ser un pequeño local a convertirse en un referente en el sector, gracias a la dedicación y pasión de nuestro equipo.</p>
+<p>Desde nuestros humildes comienzos, hemos trabajado arduamente para ganarnos la confianza y lealtad de nuestros clientes. Cada miembro de nuestro equipo está comprometido con la excelencia, constantemente actualizándose en las últimas tendencias y técnicas para asegurar que cada visita a Master Court sea una experiencia única y satisfactoria.</p>
+<p>A lo largo de los años, hemos ampliado nuestros servicios para incluir no solo cortes y peinados, sino también tratamientos capilares, cuidado de la barba, y servicios de spa y bienestar. Nos enorgullece decir que muchos de nuestros clientes iniciales siguen con nosotros, trayendo a sus familias y recomendándonos a sus amigos.</p>
+<p>Nuestra tienda no es solo un lugar para mejorar la apariencia, sino también un espacio donde la comunidad se reúne, se relaja y se siente bien cuidada. En Master Court, creemos que el verdadero estilo proviene de sentirse bien por dentro y por fuera, y trabajamos cada día para reflejar esa filosofía en todo lo que hacemos.</p>
+<p>A medida que miramos hacia el futuro, nos mantenemos fieles a nuestros valores de calidad, integridad y servicio al cliente. Estamos emocionados de continuar nuestra historia con cada uno de ustedes, nuestros valiosos clientes, y seguir creciendo juntos en esta maravillosa comunidad.</p>
+
+            
+            <h2 class="text-center">Nuestro Equipo</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'barberPedro.jpg' %}" class="card-img-top" alt="Pedro">
+                        <div class="card-body">
+                            <h5 class="card-title">Pedro</h5>
+                            <p class="card-text">Barbero con 10 años de experiencia en cortes modernos y clásicos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'barberJuan.jpg' %}" class="card-img-top" alt="Juan">
+                        <div class="card-body">
+                            <h5 class="card-title">Juan</h5>
+                            <p class="card-text">Especialista en peinados y estilos personalizados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'barberDiego.jpg' %}" class="card-img-top" alt="Diego">
+                        <div class="card-body">
+                            <h5 class="card-title">Diego</h5>
+                            <p class="card-text">Experto en barba y cuidado facial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-center mt-5">Nuestra Visión</h2>
+            <p>En Master Court, nuestra visión es ser líderes en la industria del cuidado personal, ofreciendo servicios de alta calidad que no solo mejoren la apariencia de nuestros clientes, sino que también aumenten su confianza y bienestar. Nos esforzamos por crear un ambiente acogedor y profesional donde cada cliente se sienta valorado y atendido de manera personalizada.</p>
+            <p>Creemos en la importancia de la innovación y el desarrollo continuo, por lo que estamos constantemente actualizando nuestras técnicas y productos para asegurar que ofrecemos lo mejor en cuidado personal. Nuestro objetivo es ser el salón de referencia en la comunidad, reconocido por nuestro compromiso con la excelencia y la satisfacción del cliente.</p>
+            <p>A medida que seguimos creciendo, nos mantenemos fieles a nuestros valores fundamentales de integridad, respeto y dedicación. Estamos orgullosos de nuestro equipo talentoso y apasionado, y esperamos continuar construyendo relaciones duraderas con nuestros clientes y nuestra comunidad.</p>
+        </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <p class="text-center">© 2024 Master Court. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
