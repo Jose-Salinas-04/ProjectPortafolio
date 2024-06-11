@@ -1,4 +1,3 @@
-<!-- ProjectPortafolio/myapp/templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +8,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
-    <script src="{% static 'myapp/js/main.js' %}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.min.css">
 </head>
 <body class="fondo-body">
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <img src="{% static 'spiderman.jpg' %}" alt="" class="logo logo-container">
+                <img src="{% static 'logo2.jpg' %}" alt="" class="logo logo-container">
                 <div class="textos">
                     <h5>Master Court</h5>
                     <p>Master Court - Maipú</p>
@@ -70,7 +69,7 @@
                 </a>
             </div>
         </div>
-        <div class="additional-info" id="additional-info">
+        <div class="additional-info" id="additional-info" style="display: none;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -87,7 +86,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Servicio: Cabello + Peinado</h5>
                                 <p class="card-text">Valor: $8000</p>
-                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello" data-valor="$8000">Agregar Servicio</a>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello + Peinado" data-valor="$8000">Agregar Servicio</a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +141,6 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Detalles del Servicio</h5>
-                        <!-- Añade el botón de cierre con el icono '×' -->
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -153,7 +151,6 @@
                         <p id="valorServicio"></p>
                     </div>
                     <div class="modal-footer">
-                        <!-- Añade un botón personalizado -->
                         <button type="button" class="btn btn-primary" id="confirmar-agendar">Confirmar selección y agendar</button>
                     </div>
                 </div>
@@ -161,14 +158,121 @@
         </div>
     </div>
 
+    <div id="fecha-hora-section" style="display: none;">
+        <div class="fechahora">
+            <h1>Seleccionar fecha y hora</h1>
+            <div class="image-container">
+                <div id="barbero-seleccionado" class="image-with-text">
+                    <img src="" alt="Barbero">
+                    <p id="nombre-barbero"></p>
+                </div>
+            </div>
+        </div>
+        <div id="calendario"></div>
+        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmModalLabel">Confirmar selección</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Has seleccionado la siguiente fecha y hora:</p>
+                        <p>Inicio: <span id="selectedStartDate"></span></p>
+                        <p>Fin: <span id="selectedEndDate"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="form-container" style="display: none;">
+        <form id="ReservaForm" method="post">
+            {% csrf_token %}
+            <br>
+            <h1>Datos de contacto:</h1><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <input type="text" class="form-control margen" id="nombre" placeholder="Nombre:" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control margen" id="apellido" placeholder="Apellido:" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <input type="email" class="form-control margen" id="email" placeholder="Email:" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control margen" id="telefono" placeholder="Teléfono:" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <input type="text" class="form-control margen" id="edad" placeholder="Edad" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <textarea class="form-control margen" id="observaciones" rows="3" placeholder="Observaciones:" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-primary" type="submit" id="submitButton">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>    
+    </div>
+    <footer>
+        <p>&copy; 2024 Project Portfolio. All rights reserved.</p>
+    </footer>
+
     <!-- Enlaza jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Enlaza Popper.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <!-- Enlaza Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Enlaza FullCalendar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
     <!-- Tu script personalizado -->
     <script src="{% static 'myapp/js/main.js' %}"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/locales/es.js"></script>
 </body>
 </html>
 
