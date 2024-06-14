@@ -1,33 +1,25 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Court - Maipú</title>
-    <link rel="stylesheet" href="/myapp/static/styles/estilos.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <header class="navbar">
         <img src="{% static 'spiderman.jpg' %}" alt="Master Court Logo">
         <div>
-            <h2>{{ title }}</h2>
+            <h2>Bienvenidos</h2>
             <h2>Master Court - Maipú</h2>
         </div>
         <ul>
-            <li>
-                <a href="/myapp/templates/index.html">Home</a>
-            </li>
-            <li>
-                <a href="/myapp/templates/nosotros.html">Sobre nosotros</a>
-            </li>
-            <li>
-                <a href="/myapp/templates/agendar.html">Agendar</a>
-            </li>
-            <li>
-                <a href="/myapp/templates/contactanos.html">Contáctanos</a>
-            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
+            <li><a href="{% url 'agendar' %}">Agendar</a></li>
+            <li><a href="{% url 'contactanos' %}">Contáctanos</a></li>
         </ul>
     </header>
     <div class="main-content">
@@ -35,11 +27,11 @@
         <section class="professionals">
             <h2>¿Con qué profesional te quieres atender?</h2>
             <div class="profile">
-                <img src="/myapp/static/spiderman.jpg" alt="Pedro">
+                <img src="{% static '/spiderman.jpg' %}" alt="Pedro">
                 <p>Pedro</p>
             </div>
             <div class="profile">
-                <img src="{% static '/myapp/static/spiderman.jpg' %}" alt="Juan">
+                <img src="{% static 'spiderman.jpg' %}" alt="Juan">
                 <p>Juan</p>
             </div>
             <div class="profile">
@@ -50,4 +42,3 @@
     </div>
 </body>
 </html>
-
