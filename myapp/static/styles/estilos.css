@@ -1,81 +1,238 @@
-/* estilos.css */
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ee1e1e;
-    margin: 0;
-    padding: 0;
+.margen {
+    margin-bottom: 35px;
+}
+.margen-top{
+    margin-top: 50px;
 }
 
-.navbar {
-    background-color: #333;
-    color: #f4f4f4;
-    padding: 10px 20px;
+.fondo-body{
+    background-color: rgb(221, 218, 218);
+}
+
+.header{
+    background-color: #ffffff; /* Color de fondo del encabezado */
+    position: fixed; /* Fija el encabezado en la parte superior de la ventana */
+    width: 100%; /* Ancho completo del encabezado */
+    top: 0; /* Fija el encabezado en la parte superior de la ventana */
+    left: 0; /* Fija el encabezado en la parte izquierda de la ventana */
+    z-index: 1000; /* Asegura que el encabezado esté en la capa superior */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.navbar h2 {
-    margin: 0;
+.logo {
+    width: 65px;
+    height: 75px;
+    margin-right: 20px;
+    border-radius: 90%; 
 }
 
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.textos {
+    flex: grow 0;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.navbar ul li {
-    margin-left: 20px;
+.textos h2 {
+    margin: 0;
 }
 
-.navbar ul li a {
-    color: #fff;
+.textos p {
+    margin: 5px 0;
+}
+
+.main {
+    margin-top: 70px; /* Ajusta este valor según la altura de tu encabezado */
+}
+
+.menu{
+    display: flex;
+    margin-left: 150px;
+}
+.menu-item {
+    margin-right: 50px; /* Ajusta el espacio entre los elementos según sea necesario */
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    color: #333; /* Cambia el color del texto aquí */
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.navbar ul li a:hover {
-    background-color: #575757;
+.menu-item:hover {
+    color: #b62d98; /* Cambia el color del texto al pasar el ratón sobre él */
+    text-decoration: none;
 }
 
-.main-content {
-    padding: 20px;
+.maps{
+    height: 300px;
+    width: 600px;
 }
 
-.banner {
+.carousel {
+    position: relative;
     width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    margin-bottom: 20px;
+    max-width: 90%; /* Ajusta el ancho del carrusel según tus necesidades */
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.professionals {
+.carousel-slide {
+    display: none;
+    width: 100%;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.prev-slide,
+.next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color:transparent;
+    color: rgb(238, 238, 238);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.prev-slide {
+    left: 0;
+}
+
+.next-slide {
+    right: 0;
+}
+.img-cr{
+    width: 100%;
+    height: 400px;
+}
+.fondo-cr{
+    background-color: rgb(233, 226, 226);
+}
+div h1 {
+    text-align: center; /* Esto centrará horizontalmente el texto */
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.image-container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center; /* Esto centrará horizontalmente los elementos */
+    align-items: center;
 }
 
-.profile {
-    width: 30%;
-    margin: 1%;
+
+
+
+
+.image-with-text img {
+    width: 90px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: 90px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    overflow: hidden; /* Para ocultar cualquier parte de la imagen que se salga del círculo */
+    margin-left: 50px;
+}
+
+
+.image-with-text p {
+    margin-top: 10px;
+    font-size: 16px; 
+    margin-left: 75px;
+}
+
+/* Estilos para los enlaces */
+.image-with-text a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Cambia el cursor al pasar por encima del enlace */
+.image-with-text a:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.additional-info {
+    display: none; /* Oculta la información adicional por defecto */
+}
+
+.fechahora {
+    width: 400px; /* Ancho deseado */
+    margin: 0 auto; /* Esto centrará horizontalmente el elemento */
+}
+
+#calendario {
+    width: 1000px; /* Ajusta el tamaño según sea necesario */
+    height: 900px; /* Ajusta el tamaño según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fc-event-time, .fc-event-title {
+    font-size: 1rem; /* Ajusta el tamaño de fuente si es necesario */
+}
+
+.fc .fc-timegrid-slot {
+    height: 10px; /* Ajusta la altura de los slots de tiempo */
+}
+
+.fondo-admin{
+    background-color: rgb(48, 132, 143);
+}
+
+body, html {
+    height: 100%;
+}
+.login-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-box {
+    width: 100%;
+    max-width: 400px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #e6d6d6;
+}
+
+
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
     text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-top: 50px;
+    
 }
 
-.profile img {
-    max-width: 100%;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.profile p {
-    font-weight: bold;
-    margin: 0;
+@media (max-width: 768px) {
+    nav a {
+        float: none;
+        width: 100%;
+    }
 }

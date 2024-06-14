@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master Court - Maipú</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
+    <link rel="stylesheet" href="/myapp/static/styles/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.min.css">
 </head>
 <body>
     <header class="navbar">
         <img src="{% static 'spiderman.jpg' %}" alt="Master Court Logo">
         <div>
-            <h2>Bienvenidos</h2>
+            <h2>{{ title }}</h2>
             <h2>Master Court - Maipú</h2>
         </div>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="{% url 'nosotros' %}">Sobre nosotros</a></li>
-            <li><a href="{% url 'agendar' %}">Agendar</a></li>
-            <li><a href="{% url 'contactanos' %}">Contáctanos</a></li>
+            <li>
+                <a href="/myapp/templates/index.html">Home</a>
+            </li>
+            <li>
+                <a href="/myapp/templates/nosotros.html">Sobre nosotros</a>
+            </li>
+            <li>
+                <a href="/myapp/templates/agendar.html">Agendar</a>
+            </li>
+            <li>
+                <a href="/myapp/templates/contactanos.html">Contáctanos</a>
+            </li>
         </ul>
     </header>
     <div class="main-content">
@@ -27,18 +37,223 @@
         <section class="professionals">
             <h2>¿Con qué profesional te quieres atender?</h2>
             <div class="profile">
-                <img src="{% static '/spiderman.jpg' %}" alt="Pedro">
+                <img src="/myapp/static/spiderman.jpg" alt="Pedro">
                 <p>Pedro</p>
             </div>
             <div class="profile">
-                <img src="{% static 'spiderman.jpg' %}" alt="Juan">
+                <img src="{% static '/myapp/static/spiderman.jpg' %}" alt="Juan">
                 <p>Juan</p>
             </div>
-            <div class="profile">
-                <img src="{% static 'spiderman.jpg' %}" alt="Diego">
-                <p>Diego</p>
+            <div class="image-with-text" id="barbero3">
+                <a href="#" class="professional-link">
+                    <img src="{% static 'barberDiego.jpg' %}" alt="Barbero 3" data-barbero="Diego">
+                    <p>Diego</p>
+                </a>
             </div>
-        </section>
+        </div>
+        <div class="additional-info" id="additional-info" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Servicio: Cabello</h5>
+                                <p class="card-text">Valor: $7000</p>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello" data-valor="$7000">Agregar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Servicio: Cabello + Peinado</h5>
+                                <p class="card-text">Valor: $8000</p>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello + Peinado" data-valor="$8000">Agregar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Servicio: Barba</h5>
+                                <p class="card-text">Valor: $8000</p>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Barba" data-valor="$8000">Agregar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Servicio: Cabello + Barba</h5>
+                                <p class="card-text">Valor: $10000</p>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello + Barba" data-valor="$10000">Agregar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Servicio: Cabello + Barba + Peinado</h5>
+                                <p class="card-text">Valor: $11000</p>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello + Barba + Peinado" data-valor="$11000">Agregar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Servicio: Cabello + Barba + Peinado + Cejas</h5>
+                                <p class="card-text">Valor: $13000</p>
+                                <a href="#" class="btn btn-primary agregar-servicio" data-nombre="Cabello + Barba + Peinado + Cejas" data-valor="$13000">Agregar Servicio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="servicioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Detalles del Servicio</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="nombreBarbero"></p>
+                        <p id="nombreServicio"></p>
+                        <p id="valorServicio"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="confirmar-agendar">Confirmar selección y agendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div id="fecha-hora-section" style="display: none;">
+        <div class="fechahora">
+            <h1>Seleccionar fecha y hora</h1>
+            <div class="image-container">
+                <div id="barbero-seleccionado" class="image-with-text">
+                    <img src="" alt="Barbero">
+                    <p id="nombre-barbero"></p>
+                </div>
+            </div>
+        </div>
+        <div id="calendario"></div>
+        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmModalLabel">Confirmar selección</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Has seleccionado la siguiente fecha y hora:</p>
+                        <p>Inicio: <span id="selectedStartDate"></span></p>
+                        <p>Fin: <span id="selectedEndDate"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="form-container" style="display: none;">
+        <form id="ReservaForm" method="post">
+            {% csrf_token %}
+            <br>
+            <h1>Datos de contacto:</h1><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <input type="text" class="form-control margen" id="nombre" placeholder="Nombre:" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control margen" id="apellido" placeholder="Apellido:" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <input type="email" class="form-control margen" id="email" placeholder="Email:" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control margen" id="telefono" placeholder="Teléfono:" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <input type="text" class="form-control margen" id="edad" placeholder="Edad" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="mb-1">
+                                <textarea class="form-control margen" id="observaciones" rows="3" placeholder="Observaciones:" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-12">
+                        <div class="mb-6">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-primary" type="submit" id="submitButton">Reservar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>    
+    </div>
+    <footer>
+        <p>&copy; 2024 Project Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- Enlaza jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Enlaza Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <!-- Enlaza Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Enlaza FullCalendar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+    <!-- Tu script personalizado -->
+    <script src="{% static 'myapp/js/main.js' %}"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/locales/es.js"></script>
 </body>
 </html>

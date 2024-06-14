@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}My Site{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
+    </head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <img src="{% static 'logo2.jpg' %}" alt="" class="logo logo-container">
+            <div class="textos">
+                <h5>Master Court</h5>
+                <p>Master Court - Maipú</p>
+            </div>
+            <div class="menu">
+                <a href="{% url 'index' %}" class="menu-item">Home</a>
+                <a href="{% url 'nosotros' %}" class="menu-item">Sobre nosotros</a>
+                <a href="{% url 'contactanos' %}" class="menu-item">Contactanos</a>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>
