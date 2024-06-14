@@ -2,10 +2,7 @@
 from django.shortcuts import render
 
 def index(request):
-    title = ("Bienvenido a Master Court Master Court - Maipu")
-    return render(request, 'index.html',{
-        "title" : title,
-    })
+    return render (request, 'index.html')
 
 def agendar(request):
     return render(request, 'agendar.html')
