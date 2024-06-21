@@ -3,46 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Court - Maipú</title>
-    <link rel="stylesheet" href="/myapp/static/styles/estilos.css">
+    <title>Formulario</title>
+    <!-- Enlaza Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.min.css">
 </head>
-<body>
-    <header class="navbar">
-        <img src="{% static 'spiderman.jpg' %}" alt="Master Court Logo">
-        <div>
-            <h2>{{ title }}</h2>
-            <h2>Master Court - Maipú</h2>
-        </div>
-        <ul>
-            <li>
-                <a href="/myapp/templates/index.html">Home</a>
-            </li>
-            <li>
-                <a href="/myapp/templates/nosotros.html">Sobre nosotros</a>
-            </li>
-            <li>
-                <a href="/myapp/templates/agendar.html">Agendar</a>
-            </li>
-            <li>
-                <a href="/myapp/templates/contactanos.html">Contáctanos</a>
-            </li>
-        </ul>
-    </header>
-    <div class="main-content">
-        <img class="banner" src="{% static 'spiderman.jpg' %}" alt="Banner Image">
-        <section class="professionals">
-            <h2>¿Con qué profesional te quieres atender?</h2>
-            <div class="profile">
-                <img src="/myapp/static/spiderman.jpg" alt="Pedro">
-                <p>Pedro</p>
+<body class="fondo-body">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="{% static 'logo2.jpg' %}" alt="" class="logo logo-container">
+                <div class="textos">
+                    <h5>Master Court</h5>
+                    <p>Master Court - Maipú</p>
+                </div>
+                <div class="menu">
+                    <a href="{% url 'index' %}" class="menu-item">Home</a>
+                    <a href="{% url 'nosotros' %}" class="menu-item">Sobre nosotros</a>
+                    <a href="{% url 'contactanos' %}" class="menu-item">Contactanos</a>
+                </div>
             </div>
-            <div class="profile">
-                <img src="{% static '/myapp/static/spiderman.jpg' %}" alt="Juan">
-                <p>Juan</p>
+        </div>
+    </header>
+    <br>
+    <main class="main fondo-cr">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <img src="{% static 'barberia1.jpg' %}" alt="Imagen 1" id="imagen-barbero1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="{% static 'barberia2.jpg' %}" alt="Imagen 2" id="imagen-barbero2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="{% static 'barberia3.jpg' %}" alt="Imagen 3" id="imagen-barbero3">
+                    </div>
+                    <button class="prev-slide"></button>
+                    <button class="next-slide"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div>
+        <h1>¿Con qué profesional te quieres atender?</h1>
+        <div class="image-container">
+            <div class="image-with-text" id="barbero1">
+                <a href="#" class="professional-link">
+                    <img src="{% static 'barberPedro.jpg' %}" alt="Barbero 1" data-barbero="Pedro">
+                    <p>Pedro</p>
+                </a>
+            </div>
+            <div class="image-with-text" id="barbero2">
+                <a href="#" class="professional-link">
+                    <img src="{% static 'barberJuan.jpg' %}" alt="Barbero 2" data-barbero="Juan">
+                    <p>Juan</p>
+                </a>
             </div>
             <div class="image-with-text" id="barbero3">
                 <a href="#" class="professional-link">
@@ -239,9 +257,6 @@
             </div>
         </form>    
     </div>
-    <footer>
-        <p>&copy; 2024 Project Portfolio. All rights reserved.</p>
-    </footer>
 
     <!-- Enlaza jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
