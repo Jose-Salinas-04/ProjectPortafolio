@@ -1,11 +1,9 @@
-<!-- ProjectPortafolio/myapp/templates/contactanos.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contáctanos</title>
-    <!-- Enlaza Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
@@ -39,16 +37,16 @@
                         <div class="mb-12">
                             <div class="mb-6">
                                 <div class="mb-1">
-                                    <input type="text" class="form-control margen" id="nombre" placeholder="Nombre:" required>
+                                    <input type="text" class="form-control margen" id="nombre" name="user_name" placeholder="Nombre:" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="email" class="form-control margen" id="email" placeholder="Correo:" required>
+                                    <input type="email" class="form-control margen" id="email" name="user_email" placeholder="Correo:" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" class="form-control margen" id="number" placeholder="Número de contacto:" required>
+                                    <input type="text" class="form-control margen" id="number" name="user_number" placeholder="Número de contacto:" required>
                                 </div>
                                 <div class="mb-1">
-                                    <textarea class="form-control margen" id="consulta" rows="3" placeholder="Ingrese acá su consulta:" required></textarea>
+                                    <textarea class="form-control margen" id="consulta" rows="3" name="message" placeholder="Ingrese acá su consulta:" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -80,5 +78,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("UMG_vq5CnSdITsq3J"); // Reemplaza con tu User ID
+        })();
+    
+        document.getElementById('contactanosForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const serviceID = 'service_dwvt24p';
+            const templateID = 'template_fznj1gs';
+    
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Mensaje enviado');
+                    document.getElementById('contactanosForm').reset(); // Esta línea borra los campos del formulario
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    </script>
+    
+    
 </body>
 </html>

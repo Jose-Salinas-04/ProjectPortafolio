@@ -23,6 +23,11 @@ def contactanos(request):
 def fechayhora(request):
     return render(request, 'fechayhora.html')
 
+def administrador(request):
+    return render(request, 'adminitrador.html')
+
+
+
 @csrf_exempt
 def reservar(request):
     if request.method == 'POST':
