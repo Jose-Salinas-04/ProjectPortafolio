@@ -10,6 +10,7 @@ class ReservaForm(forms.ModelForm):
         model = Cita
         fields = ['barbero', 'tipo_corte', 'fecha_hora', 'duracion']
 
+
     def save(self, commit=True):
         usuario_data = {
             'nombre': self.cleaned_data.pop('usuario_nombre'),

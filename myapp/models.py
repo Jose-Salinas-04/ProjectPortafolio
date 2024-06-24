@@ -2,14 +2,7 @@ from django.db import models
 
 # Create your models here.
 def __str__(self):
-        return self.name  
-
-from django.db import models
-
-# Create your models here.
-def __str__(self):
-        return self.name  
-from django.db import models
+        return self.nombre  
 
 class Localizacion(models.Model):
         pais = models.CharField(max_length=100)
@@ -29,14 +22,23 @@ class HorarioTrabajo(models.Model):
 class TipoCorte(models.Model):
         descripcion = models.CharField(max_length=50)
 
+        def __str__(self):
+                return self.descripcion
+
 class Barbero(models.Model):
         nombre = models.CharField(max_length=50)
+
+        def __str__(self):
+                return self.nombre
+
+
 
 class Usuario(models.Model):
         nombre = models.CharField(max_length=50)
         correo = models.EmailField(unique=True)
         telefono = models.CharField(max_length=15)
         comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE)
+
 
 class Cita(models.Model):
         usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)

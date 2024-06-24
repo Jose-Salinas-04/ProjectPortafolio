@@ -26,7 +26,8 @@ def fechayhora(request):
 def administrador(request):
     return render(request, 'administrador.html')
 
-
+def create_index(request):
+    return render(request, 'create_index.html')
 
 @csrf_exempt
 def reservar(request):

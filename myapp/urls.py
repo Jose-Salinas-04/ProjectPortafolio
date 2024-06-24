@@ -7,6 +7,7 @@ urlpatterns = [
     path('contactanos/', views.contactanos, name='contactanos'),
     path('fechayhora/', views.fechayhora, name='fechayhora'),
     path('administrador/', views.administrador, name='administrador'),
+    path('index/create/', views.create_index, name='create_index'),
     path('reservar/', views.reservar, name='reservar'),  # Asegúrate de que esta línea exista
 ]
 
