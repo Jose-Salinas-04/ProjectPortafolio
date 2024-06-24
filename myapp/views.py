@@ -24,7 +24,7 @@ def fechayhora(request):
     return render(request, 'fechayhora.html')
 
 def administrador(request):
-    return render(request, 'adminitrador.html')
+    return render(request, 'administrador.html')
 
 
 
