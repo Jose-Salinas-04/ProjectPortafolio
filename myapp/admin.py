@@ -4,5 +4,5 @@ from .models import Usuario
 
 # Register your models here
 admin.site.register(Barbero)
-admin.site.register(Usuario )
+admin.site.register(Usuario)
 
