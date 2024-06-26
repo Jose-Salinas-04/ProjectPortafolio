@@ -1,0 +1,17 @@
+<!-- templates/reservar_cita.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservar Cita</title>
+</head>
+<body>
+    <h2>Datos de contacto:</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Reservar</button>
+    </form>
+</body>
+</html>

@@ -1,9 +1,10 @@
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.views import View
+from .forms import CitaForm
 
 
 
@@ -28,10 +29,8 @@ def fechayhora(request):
 def administrador(request):
     return render(request, 'administrador.html')
 
-def create_index(request):
-    return render(request, 'create_index.html', {
-        "form" : CitaForm
-    })
+def confirmacion(request):
+    return render(request, 'confirmacion.html')
 '''
 @csrf_exempt
 def reservar(request):
@@ -86,3 +85,13 @@ def reservar(request):
 '''
 
 
+
+def reservar_cita(request):
+    if request.method == 'POST':
+        form = CitaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('confirmacion')  # Redirigir a una página de confirmación o a donde desees
+    else:
+        form = CitaForm()
+    return render(request, 'reservar_cita.html', {'form': form})

@@ -5,3 +5,5 @@ from .models import Cita
 from .models import TipoCorte
 
 # Register your models here
+admin.site.register(Barbero)
+admin.site.register(Usuario)
