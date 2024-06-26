@@ -40,13 +40,8 @@ class Usuario(models.Model):
         comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE)
 
 
-class Cita(models.Model):
-        usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-        barbero = models.ForeignKey(Barbero, on_delete=models.CASCADE)
-        tipo_corte = models.ForeignKey(TipoCorte, on_delete=models.CASCADE)
-        fecha_hora = models.DateTimeField()
-        duracion = models.TimeField()
 
+        
 class Meta:
         unique_together = ('barbero', 'fecha_hora')
 
@@ -58,3 +53,9 @@ class Barberia(models.Model):
         valorizacion = models.DecimalField(max_digits=2, decimal_places=1)
         barbero = models.ForeignKey(Barbero, on_delete=models.CASCADE)
 
+class Cita(models.Model):
+        usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+        barbero = models.ForeignKey('Barbero', on_delete=models.CASCADE)
+        tipo_corte = models.ForeignKey('TipoCorte', on_delete=models.CASCADE)
+        fecha_hora = models.DateTimeField()
+        duracion = models.DurationField()

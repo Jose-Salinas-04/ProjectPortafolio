@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.views import View
 
+
+
 def index(request):
     title = ("Bienvenido a Master Court Master Court - Maipu")
     return render(request, 'index.html',{
@@ -27,8 +29,10 @@ def administrador(request):
     return render(request, 'administrador.html')
 
 def create_index(request):
-    return render(request, 'create_index.html')
-
+    return render(request, 'create_index.html', {
+        "form" : CitaForm
+    })
+'''
 @csrf_exempt
 def reservar(request):
     if request.method == 'POST':
@@ -79,5 +83,6 @@ def reservar(request):
             return JsonResponse({'status': 'fail', 'error': str(e)})
 
     return JsonResponse({'status': 'fail'})
+'''
 
 

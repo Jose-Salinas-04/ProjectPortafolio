@@ -1,6 +1,9 @@
+from django.forms import ModelForm
 from django import forms
 from .models import Cita, Usuario
 
+
+''''
 class ReservaForm(forms.ModelForm):
     usuario_nombre = forms.CharField(max_length=50)
     usuario_correo = forms.EmailField()
@@ -23,3 +26,10 @@ class ReservaForm(forms.ModelForm):
         if commit:
             cita.save()
         return cita
+
+
+class CitaForm(ModelForm):
+    class Meta:
+        model = Cita
+        fields = ["tipo_corte", "fecha_hora", "duracion"]
+        '''
