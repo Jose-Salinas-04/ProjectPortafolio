@@ -3,11 +3,11 @@ from .models import Barbero
 from .models import Usuario
 from .models import Cita
 from .models import TipoCorte
-from .models import Comentario
-
+from .models import HorarioTrabajo
 
 # Register your models here
 admin.site.register(Barbero)
 admin.site.register(Usuario)
 admin.site.register(TipoCorte)
-admin.site.register(Comentario)
+admin.site.register(Cita)
+admin.site.register(HorarioTrabajo)

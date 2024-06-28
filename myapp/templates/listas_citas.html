@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Lista de Citas</h2>
+    <a href="{% url 'crear_cita' %}">Nueva Cita</a>
+    <ul>
+        {% for cita in citas %}
+        <li>{{ cita.nombre_cliente }} - {{ cita.fecha_cita }} {{ cita.hora_cita }}
+            <a href="{% url 'editar_cita' cita.pk %}">Editar</a>
+            <a href="{% url 'eliminar_cita' cita.pk %}">Eliminar</a>
+        </li>
+        {% endfor %}    
+    </ul>
+    {% endblock %}

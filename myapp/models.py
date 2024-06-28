@@ -40,7 +40,6 @@ class Usuario(models.Model):
         comentario = models.ForeignKey(Comentario, on_delete=models.CASCADE)
 
 
-
         
 class Meta:
         unique_together = ('barbero', 'fecha_hora')
@@ -53,9 +52,20 @@ class Barberia(models.Model):
         valorizacion = models.DecimalField(max_digits=2, decimal_places=1)
         barbero = models.ForeignKey(Barbero, on_delete=models.CASCADE)
 
+
 class Cita(models.Model):
-        usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
-        barbero = models.ForeignKey('Barbero', on_delete=models.CASCADE)
-        tipo_corte = models.ForeignKey('TipoCorte', on_delete=models.CASCADE)
-        fecha_hora = models.DateTimeField()
-        duracion = models.DurationField()
+        nombre_cliente = models.CharField(max_length=100, default='Nombre Predeterminado')
+        apellido_cliente = models.CharField(max_length=100, default='Apellido Predeterminado')
+        email_cliente = models.EmailField(default='default@example.com')
+        telefono_cliente = models.CharField(max_length=15, default='0000000000')
+        edad_cliente = models.IntegerField(default=0)
+        observaciones = models.TextField(blank=True, null=True)
+        fecha_cita = models.DateField(default='2000-01-01')
+        hora_cita = models.TimeField(default='12:00')
+        barbero = models.CharField(max_length=100, default='Barbero Predeterminado')
+
+        def __str__(self):
+                return f"{self.nombre_cliente} {self.apellido_cliente} - {self. fecha_cita} {self.hora_cita}"
+
+
+

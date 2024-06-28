@@ -1,21 +1,13 @@
-from django.core.mail import send_mail
-from django.shortcuts import render,redirect
+from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import json
-from django.views import View
 from .forms import CitaForm
-
-
+from .models import Cita
 
 def index(request):
-    title = ("Bienvenido a Master Court Master Court - Maipu")
-    return render(request, 'index.html',{
-        "title" : title,
-    })
-
-def agendar(request):
-    return render(request, 'agendar.html')
+    title = "Bienvenido a Master Court Master Court - Maipu"
+    return render(request, 'index.html', {"title": title})
 
 def nosotros(request):
     return render(request, 'nosotros.html')
@@ -23,67 +15,11 @@ def nosotros(request):
 def contactanos(request):
     return render(request, 'contactanos.html')
 
-def fechayhora(request):
-    return render(request, 'fechayhora.html')
-
 def administrador(request):
     return render(request, 'administrador.html')
 
 def confirmacion(request):
     return render(request, 'confirmacion.html')
-'''
-@csrf_exempt
-def reservar(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            nombre = data['nombre']
-            apellido = data['apellido']
-            email = data['email']
-            telefono = data['telefono']
-            edad = data['edad']
-            observaciones = data['observaciones']
-            profesional = data['profesional']
-            servicio = data['servicio']
-            fecha = data['fecha']
-            hora = data['hora']
-
-            # Validar los datos aquí
-
-            # Enviar el correo electrónico
-            subject = 'Detalles de su reserva'
-            message = f"""
-            Estimado {nombre} {apellido},
-
-            Gracias por su reserva. Aquí están los detalles de su reserva:
-
-            Profesional: {profesional}
-            Servicio: {servicio}
-            Fecha: {fecha}
-            Hora: {hora}
-
-            Si tiene alguna pregunta, no dude en contactarnos.
-
-            Saludos,
-            El equipo de Master Court
-            """
-            try:
-                send_mail(subject, message, 'folioporta228@gmail.com', [email])
-                return JsonResponse({'status': 'success'})
-            except BadHeaderError:
-                return JsonResponse({'status': 'fail', 'error': 'Invalid header found.'})
-            except Exception as e:
-                logger.error(f"Error sending email: {str(e)}")
-                return JsonResponse({'status': 'fail', 'error': str(e)})
-
-        except KeyError as e:
-            return JsonResponse({'status': 'fail', 'error': f'Missing key: {e}'})
-        except Exception as e:
-            return JsonResponse({'status': 'fail', 'error': str(e)})
-
-    return JsonResponse({'status': 'fail'})
-'''
-
 
 
 def reservar_cita(request):
@@ -91,7 +27,42 @@ def reservar_cita(request):
         form = CitaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('confirmacion')  # Redirigir a una página de confirmación o a donde desees
+            return redirect('confirmacion')
     else:
         form = CitaForm()
     return render(request, 'reservar_cita.html', {'form': form})
+
+def confirmacion(request):
+    return render(request, 'confirmacion.html')
+
+def lista_citas(request):
+    citas = Cita.objects.all()
+    return render(request, 'lista_citas.html', {'citas': citas})
+
+def crear_cita(request):
+    if request.method == 'POST':
+        form = CitaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_citas')
+    else:
+        form = CitaForm()
+    return render(request, 'crear_cita.html', {'form': form})
+
+def editar_cita(request, pk):
+    cita = get_object_or_404(Cita, pk=pk)
+    if request.method == 'POST':
+        form = CitaForm(request.POST, instance=cita)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_citas')
+    else:
+        form = CitaForm(instance=cita)
+    return render(request, 'editar_cita.html', {'form': form})
+
+def eliminar_cita(request, pk):
+    cita = get_object_or_404(Cita, pk=pk)
+    if request.method == 'POST':
+        cita.delete()
+        return redirect('lista_citas')
+    return render(request, 'eliminar_cita.html', {'cita': cita})
